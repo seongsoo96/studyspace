@@ -13,27 +13,26 @@ public class Ex08Student01 {
 		// "누구의" 필드인지 적어주면 된다.
 		// 즉 위의 s 객체의 id 는 s.id 이렇게
 
-		s.id = 1;
-		s.name = "조재영";
-		s.korean = 80;
-		s.english = 81;
-		s.math = 81;
+		s.setId(1);           //s.id = 1;
+		s.setName("조재영");  //s.name = "조재영" 
+		s.setKorean(80);      //s.korean = 80;
+		s.setEnglish(81);     //s.english = 81;
+		s.setMath(81);        //s.math = 81;
 
-		System.out.printf("번호: %03d번 이름: %s\n", s.id, s.name);
-		System.out.printf("국어: %03d점 영어: %03d점 수학: %03d점\n", s.korean, s.english, s.math);
-
+		System.out.printf("번호: %03d번 이름: %s\n", s.getId(), s.getName());
+		System.out.printf("국어: %03d점 영어: %03d점 수학: %03d점\n", s.getKorean(), s.getEnglish(), s.getMath());
 		System.out.printf("총점: %03d점 평균: %.2f점\n", s.calculateSum(), s.calculateAverage());
 
 		Student s2 = new Student();
 
-		System.out.printf("번호: %03d번 이름: %s\n", s2.id, s2.name);
-		System.out.printf("국어: %03d점 영어: %03d점 수학: %03d점\n", s2.korean, s2.english, s2.math);
+		System.out.printf("번호: %03d번 이름: %s\n", s2.getId(), s2.getName());
+		System.out.printf("국어: %03d점 영어: %03d점 수학: %03d점\n", s2.getKorean(), s2.getEnglish(), s2.getMath());
 
-		s2.id = 3;
-		s2.korean = 40;
-		s2.name = "김철수";
-		s2.english = 30;
-		s2.math = 45;
+		s2.setId(3);          //s2.id = 3;
+		s2.setKorean(40);     //s2.korean = 40;
+		s2.setName("김철수"); //s2.name = "김철수";
+		s2.setEnglish(30);    //s2.english = 30;
+		s2.setMath(45);       //s2.math = 45;
 
 		System.out.printf("총점: %03d점 평균: %.2f점\n", s2.calculateSum(), s2.calculateAverage());
 
@@ -49,6 +48,10 @@ public class Ex08Student01 {
 		System.out.println("s3 == s4: " + (s3 == s4));
 
 		System.out.println("s3.equals(s4): " + s3.equals(s4));
+		
+		
+		
+		
 
 	}
 }

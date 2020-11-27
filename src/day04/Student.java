@@ -1,22 +1,24 @@
 package day04;
 
+import java.util.Scanner;
+
 public class Student {
 	// 필드
-	int id;
-	String name;
-	int korean;
-	int english;
-	int math;
+	private int id;
+	private String name;
+	private int korean;
+	private int english;
+	private int math;
 
 	// 메소드
 	// 1. 학생의 총점을 계산하는 메소드
-	int calculateSum() {
+	public int calculateSum() {
 		int sum = korean + english + math;
 		return sum;
 	}
 
 	// 2. 학생의 평균을 계산하는 메소드
-	double calculateAverage() {
+	public double calculateAverage() {
 		double average = calculateSum() / 3.0;
 		return average;
 	}
@@ -73,5 +75,67 @@ public class Student {
 		}
 
 		return false;
+	}
+	
+	// 캡슐화를 위한 getter/setter메소드
+	//setter
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public void setKorean(int korean) {
+		this.korean = korean;
+	}
+	
+	public void setEnglish(int english) {
+		this.english = english;
+	}
+	
+	public void setMath(int math) {
+		this.math = math;
+	}
+	
+	//getter
+	public int getId() {
+		return id;
+	}
+	
+	public String getName() {
+		if(name == null) {			
+			return new String();
+		}
+		return name;
+	}
+	
+	public int getKorean() {
+		return korean;
+	}
+	
+	public int getEnglish() {
+		return english;
+	}
+	
+	public int getMath() {
+		return math;
+	}
+	
+	// 점수가 유효한지 체크하고 유효하면 점수를 return
+	// 유효하지 않으면 while에 들어가서 유효한 점수가 들어올 때까지
+	// 입력을 받는 메소드
+	public int validateScore(Scanner scanner, String message) {
+		System.out.print(message);
+		int score = scanner.nextInt();
+		while(score < 0 || score > 100) {
+			System.out.println("잘못입력하셨습니다.");
+			System.out.print(message);
+			score = scanner.nextInt();
+		}
+		
+		
+		return score;
 	}
 }
