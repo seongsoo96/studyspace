@@ -56,21 +56,21 @@ public class ArrayQuiz_02 {
 		
 		//문제 3번
 		
-		int[] rank_arr = new int[arr.length];
-		
-		for(int i=0; i<arr.length; i++) {
-			
-			rank_arr[i] = 1;
-			
-			for(int j=0; j<arr.length; j++) {
-//				if(arr[i] != arr[j]) {
-					if(arr[i]<arr[j]) {
-						rank_arr[i]++;
-					}
-//				} 
-			}
-			System.out.print(rank_arr[i] + " ");
-		}
+//		int[] rank_arr = new int[arr.length];
+//		
+//		for(int i=0; i<arr.length; i++) {
+//			
+//			rank_arr[i] = 1;
+//			
+//			for(int j=0; j<arr.length; j++) {
+////				if(arr[i] != arr[j]) {
+//					if(arr[i]<arr[j]) {
+//						rank_arr[i]++;
+//					}
+////				} 
+//			}
+//			System.out.print(rank_arr[i] + " ");
+//		}
 		
 		
 		//문제 4번
@@ -82,8 +82,95 @@ public class ArrayQuiz_02 {
 			=> over_arr : 9, 10
 			=> ret_arr : 3, 8, 13, 17, 21, 27  */
 		
-		int[] over_arr = new int[arr.length];
-//		inf[]
+		int[] over_arr = new int[arr.length]; //중복값 배열
+		int[] ret_arr = new int[arr.length]; //중복아닌 값 배열
+
+		int overCnt = 0; //중복값 개수
+		int retCnt = 0; //중복아닌 값 개수
+		
+		for(int i=0; i<arr.length; i++) {
+			boolean isOverlap = false; //중복값이면 true 
+			
+			//이미 중복값으로 판별되었는지 확인
+			for(int j=0; j<arr.length; j++) {
+				if(over_arr[j] == arr[i]) {
+					isOverlap = true;
+					break;
+				}
+			}
+			
+			//이전에 중복값으로 판별된 적이 있다면 건너뜀
+			if(isOverlap) {
+				continue;
+				
+			} else {
+				//비교하지 않은 인덱스에 중복값이 있는지 확인함
+				for(int j=i+1; j<arr.length; j++) {
+					if( arr[i] == arr[j] ) {
+						isOverlap = true;
+						break;
+					}
+				}
+				
+			} 
+			
+			//최종 판정
+			if(isOverlap) {
+				over_arr[overCnt++] = arr[i];
+			} else {
+				ret_arr[retCnt++] = arr[i];
+			}
+		}
+		
+		
+		
+		//--- 버블 정렬 ---
+		for(int i=0; i<over_arr.length-1; i++) {
+			for(int j=0; j<over_arr.length-1-i; j++) {
+				//0은 스왑하지 않음 - 정렬에서 빠짐
+				if( over_arr[j] > over_arr[j+1] && over_arr[j+1] != 0) {
+					int tmp = over_arr[j];
+					over_arr[j] = over_arr[j+1];
+					over_arr[j+1] = tmp;
+				}
+			}
+		}
+		
+		for(int i=0; i<ret_arr.length-1; i++) {
+			for(int j=0; j<ret_arr.length-1-i; j++) {
+				//0은 스왑하지 않음 - 정렬에서 빠짐
+				if( ret_arr[j] > ret_arr[j+1] && ret_arr[j+1] != 0) {
+					int tmp = ret_arr[j];
+					ret_arr[j] = ret_arr[j+1];
+					ret_arr[j+1] = tmp;
+				}
+			}
+		}
+		//-----------------
+		
+		
+		//--- 최종 출력 ---
+		System.out.print("Overlap: ");
+		for(int i=0; i<over_arr.length; i++) {
+			if(over_arr[i] == 0) { //0은 출력하지 않음
+				break;
+			}
+			
+			System.out.print(over_arr[i] + " ");
+		}
+		System.out.println();
+
+		System.out.print("Return: ");
+		for(int i=0; i<ret_arr.length; i++) {
+			if(ret_arr[i] == 0) { //0은 출력하지 않음
+				break;
+			}
+			
+			System.out.print(ret_arr[i] + " ");
+		}
+		System.out.println();
+		//-----------------
+		
 		
 		
 	}
