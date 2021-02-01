@@ -23,7 +23,7 @@ public class Collection_03_Iterator {
 		
 		//-------------------------------------------------------
 		
-		Iterator iter; //반복자 변수
+		Iterator iter; //반복자 변수fh
 		
 		iter =list.iterator();	//리스트의 Iterator 객체 생성
 		
