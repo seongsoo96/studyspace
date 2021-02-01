@@ -108,7 +108,7 @@ public class Collection_01_List {
 		//	class LinkedList,
 		//	class Vector
 		//세가지 클래스는 비슷한 기능을 하고 메소드도 같은 걸 사용한다
-		
+	//ㄴ
 		
 		
 	}
