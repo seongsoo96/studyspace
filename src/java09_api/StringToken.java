@@ -24,6 +24,13 @@ public class StringToken {
 		}
 		System.out.println("------------------");
 		
+		String data7 = "A, B, C"; //띄어쓰기 조심
+		String[] token7 = data7.split(",");
+		
+		for(int i=0; i<token7.length; i++) {
+			System.out.println(i + " : " + token7[i]);
+		}
+		
 		
 		
 //		data1 = "Hi Hello Hola";
