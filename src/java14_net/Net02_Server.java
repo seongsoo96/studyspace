@@ -28,8 +28,8 @@ public class Net02_Server {
 			System.out.println("\n --- 클라이언트 접속 완료 ---");
 			
 			// ---- 데이터 통신 ----
-			// sock.getInputStream()	- 통신용 입력 스트림 (InputStream)
-			// sock.getOutputStream()	- 통신용 출력 스트림 (OutputStream)
+//			sock.getInputStream()	- 통신용 입력 스트림 (InputStream)
+//			sock.getOutputStream()	- 통신용 출력 스트림 (OutputStream)
 			
 			// 클라이언트가 전송한 문자열을 입력 받아서 모니터로 출력
 			in = new BufferedReader( 

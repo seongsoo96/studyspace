@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class FileOutputStreamEx {
 	public static void main(String[] args) {
@@ -19,9 +20,9 @@ public class FileOutputStreamEx {
 		try {
 			fos = new FileOutputStream(file); //스트림 생성
 			
-			
+			Scanner sc = new Scanner(System.in);
 			//파일 출력 - 데이터를 파일로 저장한다
-			String str = "cherry";
+			String str = sc.nextLine();
 			fos.write(str.getBytes(), 0, str.length());
 			fos.flush(); //버퍼 비우기
 			
