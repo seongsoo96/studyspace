@@ -18,3 +18,5 @@ function init(){
 }
 init();
 
+console.log("hello");
+
