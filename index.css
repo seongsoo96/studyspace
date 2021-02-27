@@ -1,5 +1,6 @@
 body {
     background-color: #ecf0f1;
+    color: #34495e;
 }
 
 .btn {
@@ -13,4 +14,13 @@ h1 {
 
 .clicked {
     color: #7f8c8d;
+}
+
+.form,
+.greetings {
+    display: none;
+}
+
+.showing {
+    display: block;
 }
