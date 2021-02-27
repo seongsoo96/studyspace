@@ -1,5 +1,5 @@
 
-// 클래스 값이 js-form인 첫번째 요소에 접근
+    // 클래스 값이 js-form인 첫번째 요소에 접근
 const form = document.querySelector(".js-form"),
     // 태그 값이 input인 첫번째 요소에 접근
     input = form.querySelector("input"),
