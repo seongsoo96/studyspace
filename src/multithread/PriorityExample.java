@@ -9,6 +9,8 @@ public class PriorityExample {
 			} else
 				thread.setPriority(Thread.MAX_PRIORITY);
 			thread.start();
+			
+			
 		}
 	}
 }
