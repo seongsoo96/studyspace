@@ -1,5 +1,7 @@
 package programmers;
 
+//https://programmers.co.kr/learn/courses/30/lessons/12937
+
 public class Prog_12937 {
 	
 	public static String solution(int num) {
