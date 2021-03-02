@@ -10,7 +10,7 @@ public class Prog_12944 {
 			// 모든 배열 원소들의 합
 			sum += arr[i];
 
-			// 평균
+			// 평균s
 			answer = sum / (double)arr.length;
 		}
 
