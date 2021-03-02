@@ -1,5 +1,7 @@
 package programmers;
 
+//https://programmers.co.kr/learn/courses/30/lessons/12944
+
 public class Prog_12944 {
 
 	public static double solution(int[] arr) {
@@ -10,7 +12,7 @@ public class Prog_12944 {
 			// 모든 배열 원소들의 합
 			sum += arr[i];
 
-			// 평균s
+			// 평균
 			answer = sum / (double)arr.length;
 		}
 
