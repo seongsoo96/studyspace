@@ -1,8 +1,9 @@
-package sec03.ex01;
+package sec04.ex01;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -12,10 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class SecondServlet
+ * Servlet implementation class FirstServlet
  */
-//@WebServlet("/second")
-public class SecondServlet extends HttpServlet {
+//@WebServlet("/first")
+public class FirstServlet extends HttpServlet {
 
 	/**
 	 * @see Servlet#init(ServletConfig)
@@ -36,15 +37,15 @@ public class SecondServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
-		PrintWriter out = response.getWriter();
-		String name = request.getParameter("name");
-		out.println("<html><body>");
-		out.println("이름: " + name);
-		out.println("<br>");
-		out.println("dispatch를 이용한 forward 실습입니다.");
-		out.println("</body></html>");
 		
+		//웹 브라우저에서 요청한 request객체에 address의 값으로
+		//"서울시 성북구"를 바인딩 합니다.
+		request.setAttribute("address", "서울시 성북구");
+		
+		//두번째 서블릿으로 전달하기 위해 sendRedirect() 호출
+		response.sendRedirect("second");
 	}
 
 }
