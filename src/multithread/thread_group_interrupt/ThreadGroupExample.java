@@ -22,10 +22,6 @@ public class ThreadGroupExample {
 		System.out.println("myGroup 스레드 그룹의 interrupt() 메소드 호출");
 		myGroup.interrupt();
 	
-		
-		
-		
-		
-		
+
 	}
 }
