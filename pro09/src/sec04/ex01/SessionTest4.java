@@ -1,4 +1,4 @@
-package sec03.ex04;
+package sec04.ex01;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class SessionTest4
  */
-//@WebServlet("/login")
+@WebServlet("/login")
 public class SessionTest4 extends HttpServlet {
 
 	/**
@@ -47,6 +47,8 @@ public class SessionTest4 extends HttpServlet {
 		doHandle(request, response);
 	}
 	
+	
+	
 	private void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
@@ -58,7 +60,12 @@ public class SessionTest4 extends HttpServlet {
 		if(session.isNew()) {
 			if(user_id != null) {
 				session.setAttribute("user_id", user_id);
-				out.println("<a href='login'>로그인 상태 확인</a>");
+				
+				//변수 url에 encodeURL()을 이용해 응답 시 미리 jsessionld를 저장.
+				String url=response.encodeURL("login");
+				
+				//로그인 상태 확인 클릭 시 jsessionld를 서블릿으로 다시 전송
+				out.println("<a href=" + url + ">로그인 상태 확인</a>");
 			} else {
 				out.print("<a href='login2.html'>다시 로그인 하세요!!</a>");
 				session.invalidate();
