@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class TestServlet1
  */
 //@WebServlet("*.do") // 확장자만 일치하는 패턴
-@WebServlet("/*") // 모든 요청 URL 패턴
+//@WebServlet("/*") // 모든 요청 URL 패턴
 public class TestServlet3 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -35,7 +35,7 @@ public class TestServlet3 extends HttpServlet {
 		out.println("<title>Test Servlet1</title");
 		out.println("</head>");
 		out.println("<body bgcolor='red'>");
-		out.println("<b>TestServlet1입니다.</b><br>");
+		out.println("<b>TestServlet3입니다.</b><br>");
 		out.println("<b>컨텍스트 이름 : " + context + "</b><br>");
 		out.println("<b>전체 경로 : " + url + "</b><br>");
 		out.println("<b>매핑 이름 : " + mapping + "</b><br>");

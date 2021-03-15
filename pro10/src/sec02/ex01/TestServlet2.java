@@ -34,7 +34,7 @@ public class TestServlet2 extends HttpServlet {
 		out.println("<title>Test Servlet1</title");
 		out.println("</head>");
 		out.println("<body bgcolor='yellow'>");
-		out.println("<b>TestServlet1입니다.</b><br>");
+		out.println("<b>TestServlet2입니다.</b><br>");
 		out.println("<b>컨텍스트 이름 : " + context + "</b><br>");
 		out.println("<b>전체 경로 : " + url + "</b><br>");
 		out.println("<b>매핑 이름 : " + mapping + "</b><br>");
