@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class SessionTest4
  */
-@WebServlet("/login")
+//@WebServlet("/login")
 public class SessionTest4 extends HttpServlet {
 
 	/**

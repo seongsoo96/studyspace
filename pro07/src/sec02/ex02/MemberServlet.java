@@ -49,6 +49,8 @@ public class MemberServlet extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		MemberDAO dao = new MemberDAO();
 		PrintWriter out = response.getWriter();
+		
+		// command 값을 받아 옵니다.
 		String command = request.getParameter("command");
 		
 		if (command != null && command.equals("addMember")) {
