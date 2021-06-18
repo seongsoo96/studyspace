@@ -1,6 +1,6 @@
 
     // 클래스 값이 js-toDoForm인 첫번째 요소에 접근
-const toDoForm = document.querySelector('.js-toDoForm'),
+    const toDoForm = document.querySelector('.js-toDoForm'),
     // toDoForm의 태그 값이 input인 첫번째 요소에 접근
     toDoInput = toDoForm.querySelector("input"),
     // 클래스 값이 js-toDoList인 첫번째 요소에 접근
@@ -14,7 +14,7 @@ let toDos = [];
 let idNum = 1;
 
 function deleteToDo(event){
-    const btn = event.target;
+    const btn = event.currentTarget;
     const li = btn.parentNode;
     toDoList.removeChild(li);
     const cleanToDos = toDos.filter(function(toDo){
@@ -35,7 +35,8 @@ function paintToDo(text){
 
     // button에 ❌ 텍스트를 추가
     const delBtn = document.createElement('button');
-    delBtn.innerText = '❌';
+    // delBtn.innerHTML = '<img src="/images/checkbox.png">';
+    // delBtn.innerText = '';
 
     // ❌버튼을 'click'하면 deleteToDo 함수 실행.
     delBtn.addEventListener('click', deleteToDo);

@@ -1,10 +1,12 @@
 
     // 클래스 값이 js-form인 첫번째 요소에 접근
-const form = document.querySelector(".js-form"),
+    const form = document.querySelector(".js-form"),
     // 태그 값이 input인 첫번째 요소에 접근
     input = form.querySelector("input"),
     // 클래스 값이 js-greeting인 첫번째 요소에 접근
-    greeting = document.querySelector(".js-greeting")
+    greeting = document.querySelector(".js-greeting"),
+    // id 값이 todo인 첫번째 요소에 접근
+    todo = document.getElementById("todo")
 
 const USER_LS = "currentUser",
     SHOWING_CN = "showing";
@@ -37,6 +39,9 @@ function paintGreeting(text){
     greeting.classList.add(SHOWING_CN)
     //greeting클래스에 Hello text 텍스트를 추가한다.
     greeting.innerText = `Hello ${text}`
+    //todo아이디에 form클래스를 삭제한다.
+    todo.classList.remove('form')
+    
 }
 
 
