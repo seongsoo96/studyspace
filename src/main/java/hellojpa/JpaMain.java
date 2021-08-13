@@ -58,7 +58,7 @@ public class JpaMain {
             //엔티티 삭제
             Member findMember = em.find(Member.class, 160L);
             em.remove(findMember);
-            System.out.println("=========================");
+            System.out.println("========================");
 
 
             tx.commit();
