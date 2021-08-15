@@ -41,23 +41,20 @@ public class JpaMain {
             System.out.println("result = " + (findMember1 == findMember2));
 */
 
-            //엔티티 등록
-            Member member1 = new Member(150L, "A");
-            Member member2 = new Member(160L, "B");
 
-            em.persist(member1);
-            em.persist(member2);
-            System.out.println("=========================");
+            //플러시
+            //  영속성 컨텍스트를 플러하는 방법
+            //  em.flush() - 직접 호출
+            //  트랜잭션 커밋 - 플러시 자동 호출
+            //  JPQL쿼리 실행 - 플러시 자동 호출
+            //  플러시는
+            //  영속성 컨텍스트를 비우지 않음
+            //  영속성 컨텍스트의 변경내용을 데이터베이스에 동기화
+            //  트랜잭션이라는 작업 단위가 중요! -> 커밋 직전에만 동기화 하면 됨.
+            Member member200 = new Member(200L, "member200");
+            em.persist(member200);
 
-            //엔티티 수정 (변경 감지)
-            Member member = em.find(Member.class, 150L);
-            member.setName("ZZZZ");
-//            em.persist(member);  <- 틀림
-            System.out.println("=========================");
-
-            //엔티티 삭제
-            Member findMember = em.find(Member.class, 160L);
-            em.remove(findMember);
+            em.flush();
             System.out.println("=========================");
 
 
