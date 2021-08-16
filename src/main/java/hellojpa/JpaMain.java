@@ -42,6 +42,7 @@ public class JpaMain {
 */
 
 
+/*
             //플러시
             //  영속성 컨텍스트를 플러하는 방법
             //  em.flush() - 직접 호출
@@ -56,8 +57,18 @@ public class JpaMain {
 
             em.flush();
             System.out.println("=========================");
+*/
 
+            //준영속
+            Member member = em.find(Member.class, 150L);
+            member.setName("AAAAA");
 
+//            em.detach(member);
+            em.clear();
+
+            Member member2 = em.find(Member.class, 150L);
+
+            System.out.println("=========================");
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
