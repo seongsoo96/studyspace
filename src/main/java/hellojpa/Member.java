@@ -42,4 +42,20 @@ public class Member {
     public void setTeam(Team team) {
         this.team = team;
     }
+
+    public void changeTeam(Team team) {
+        this.team = team;
+        team.getMembers().add(this);
+    }
+
+    // 무한루프 조심
+    //lombok에서 toString()은 웬만해선 쓰지 마라.
+//    @Override
+//    public String toString() {
+//        return "Member{" +
+//                "id=" + id +
+//                ", username='" + username + '\'' +
+//                ", team=" + team +
+//                '}';
+//    }
 }

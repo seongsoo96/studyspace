@@ -18,27 +18,51 @@ public class JpaMain {
 
         try {
 
-            //저장
+
+/*
+            양방향 매핑시 가장 많이 하는 실수
+
             Team team = new Team();
             team.setName("TeamA");
             em.persist(team);
 
             Member member = new Member();
             member.setUsername("member1");
-            member.setTeam(team);
+
+            //역방향(주인이 아닌 방향)만 연관관계 설정
+            team.getMembers().add(member);
+
+            em.persist(member);
+*/
+
+            //저장
+            Team team = new Team();
+            team.setName("TeamA");
+
+            em.persist(team);
+
+            Member member = new Member();
+            member.setUsername("member1");
+            //양방향 매핑시 연관관계의 주인에 값을 입력해야 한다.
+            member.changeTeam(team);
+
             em.persist(member);
 
-            //DB쿼리 보고싶을때 영속성컨텍스트를 flush
-            //(없으면 1차캐시에서 바로 조회가능)
-            em.flush();
-            em.clear();
+            team.addMember(member);
 
-            Member findMember = em.find(Member.class, member.getId());
-            List<Member> members = findMember.getTeam().getMembers();
+            //순수한 객체 관계를 고려하면 항상 양쪽다 값을 입력해야 한다
+            //까먹을수도 있으니 미리 setter에 설정을 해준다
+//            team.getMembers().add(member);
 
-            for(Member m : members) {
-                System.out.println("m = " + m.getUsername());
-            }
+//            em.flush();
+//            em.clear();
+
+            Team findTeam = em.find(Team.class, team.getId()); //1차 캐시
+            List<Member> members = findTeam.getMembers();
+
+            System.out.println("============");
+            System.out.println("members = " + findTeam);
+            System.out.println("============");
 
             tx.commit();
         } catch (Exception e) {
