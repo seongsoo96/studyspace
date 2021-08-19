@@ -18,10 +18,29 @@ public class JpaMain {
 
         try {
 
-            Member member = new Member();
-            member.setUsername("C");
+            //저장
+            Team team = new Team();
+            team.setName("TeamA");
+            em.persist(team);
 
+            Member member = new Member();
+            member.setUsername("member1");
+            member.setTeam(team);
             em.persist(member);
+
+            //DB쿼리 보고싶을때 영속성컨텍스트를 flush
+            //(없으면 1차캐시에서 바로 조회가능)
+            em.flush();
+            em.clear();
+
+            Member findMember = em.find(Member.class, member.getId());
+
+            Team findTeam = findMember.getTeam();
+            System.out.println("findTeam = " + findTeam.getName());
+
+            //수정
+            Team newTeam = em.find(Team.class, 100L);
+            findMember.setTeam(newTeam);
 
             tx.commit();
         } catch (Exception e) {
