@@ -46,6 +46,7 @@ public class JpaMain {
 
             //SQL: select * from Member;
             //SQL: select * from Team where TEAM_ID = xxx;
+            //오늘 공부 안함...;; 그래도 커밋...;;
 
             tx.commit();
         } catch (Exception e) {
