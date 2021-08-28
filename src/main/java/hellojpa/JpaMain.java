@@ -18,37 +18,22 @@ public class JpaMain {
 
         try {
 
-            Team team = new Team();
-            team.setName("teamA");
-            em.persist(team);
+            Child child1 = new Child();
+            Child child2 = new Child();
 
-            Team teamB = new Team();
-            teamB.setName("teamB");
-            em.persist(teamB);
+            Parent parent = new Parent();
+            parent.addChild(child1);
+            parent.addChild(child2);
 
-            Member member1 = new Member();
-            member1.setUsername("member1");
-            member1.setTeam(team);
-            em.persist(member1);
-
-            Member member2 = new Member();
-            member2.setUsername("member2");
-            member2.setTeam(teamB);
-            em.persist(member2);
+            em.persist(parent);
 
             em.flush();
             em.clear();
 
-//            Member m = em.find(Member.class, member1.getId());
+            Parent findParent = em.find(Parent.class, parent.getId());
+//            findParent.getChildList().remove(0);
 
-            List<Member> members = em.createQuery("select m from Member m", Member.class)
-                    .getResultList();
-
-            //SQL: select * from Member;
-            //SQL: select * from Team where TEAM_ID = xxx;
-            //오늘 공부 안함...;; 그래도 커밋...;;
-            //오늘도 공부 안함...;; 진짜 왜이러냐.. 낼부터 다시 집중...!
-            //주말부터 열심히...!!
+            em.remove(findParent);
 
             tx.commit();
         } catch (Exception e) {
