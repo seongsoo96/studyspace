@@ -18,28 +18,16 @@ public class JpaMain {
             member.setAge(10);
             em.persist(member);
 
-            //반환 타입이 명확할 때 사용
-            TypedQuery<Member> query1 = em.createQuery("select m from Member m", Member.class);
-            TypedQuery<String> query2 = em.createQuery("select m.username from Member m", String.class);
+            em.flush();
+            em.clear();
 
-            //반환 타입이 명확하지 않을 때 사용
-            Query query3 = em.createQuery("select m.username, m.age from Member m");
+            //new 명령어로 조회
+            List<MemberDTO> result = em.createQuery("select new jpql.MemberDTO(m.username, m.age) from Member m", MemberDTO.class)
+                    .getResultList();
 
-            List<Member> resultList = query1.getResultList();
-            for (Member member1 : resultList) {
-                System.out.println("member1 = " + member1);
-            }
-
-            //특정 결과가 정확히 하나가 나올 때
-            Member result = query1.getSingleResult();
-            System.out.println("result = " + result);
-
-
-            //파라미터 바인딩 - 이름 기준  **위치 기준은 왠만하면 사용 ㄴㄴ
-            TypedQuery<Member> query4 = em.createQuery("select m from Member m where m.username = :username", Member.class);
-            query4.setParameter("username", "member1");
-            Member singleResult = query4.getSingleResult();
-            System.out.println("singleResult = " + singleResult.getUsername());
+            MemberDTO memberDTO = result.get(0);
+            System.out.println("memberDTO = " + memberDTO.getUsername());
+            System.out.println("memberDTO = " + memberDTO.getAge());
 
 
             tx.commit();
