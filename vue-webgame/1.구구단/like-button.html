@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <div v-if="liked">좋아요 눌렀음</div>
+        <button v-else v-on:click="onClickButton">Like</button>
+    </div>
+</body>
+<script>
+  const app = new Vue({
+    el: '#root',
+    data: {
+        liked: false,s
+    },
+    methods: {
+      onClickButton() {
+        this.liked = true;
+      }
+    }
+  })
+</script>
+</html>
