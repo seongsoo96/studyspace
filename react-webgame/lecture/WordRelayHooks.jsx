@@ -2,7 +2,7 @@ const React = require("react");
 const { useState, useRef } = React;
 
 const WordRelayHooks = () => {
-    const [word, setWord] = useState('이성수 훅스');
+    const [word, setWord] = useState('이성수 Hooks');
     const [value, setValue] = useState('');
     const [result, setResult] = useState('');
     const inputRef = useRef(null);
