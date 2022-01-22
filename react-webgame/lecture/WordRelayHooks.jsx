@@ -31,7 +31,7 @@ const WordRelayHooks = () => {
             <form onSubmit={onSubmitForm}>
                 <label htmlFor="wordInput">글자를 입력하세요.</label><br />
                 <input id="wordInput" className="wordInput" ref={inputRef} value={value} onChange={onChangeInput} />
-                <button>클릭!!!</button>
+                <button>클릭!!</button>
             </form>
             <div>{result}</div>
         </>
