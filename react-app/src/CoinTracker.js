@@ -34,10 +34,12 @@ function CoinTracker() {
 						</option>
 					))}
 				</select>
-				// {/* <form onSubmit={onSubmit}>
-				// 	<input type="text" value={money} onChange={onChange} />
-				// 	<button>변환</button>
-				// </form> */}
+				{
+					<form onSubmit={onSubmit}>
+					<input type="text" value={money} onChange={onChange} />
+					<button>변환</button>
+				</form> 
+			}
 			)}
 		</div>
 	);
