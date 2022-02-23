@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 // import TodoList from "./TodoList";
 // import CoinTracker from "./CoinTracker";
 import MovieApp from "./MovieApp";
+import "./styles.css";
 
 ReactDOM.render(
 	<React.StrictMode>
