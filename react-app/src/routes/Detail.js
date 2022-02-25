@@ -25,10 +25,10 @@ function Detail() {
 			<div>
 				<img src={movie.small_cover_image} />
 			</div>
-			<div>{movie.title_long}</div>
-			<div>{movie.rating}</div>
-			<div>{movie.runtime}min</div>
-			<div>Genres</div>
+			<li>{movie.title_long}</li>
+			<li>{movie.rating}</li>
+			<li>{movie.runtime}min</li>
+			<li>Genres</li>
 			<div>
 				<ul>{movie.genres && movie.genres.map((g) => <li>{g}</li>)}</ul>
 			</div>
