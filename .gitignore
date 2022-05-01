@@ -1,6 +1,9 @@
 h2/
 .idea
 node_modules/
+# Ignore all 
 * 
+# Unignore all with extensions 
 !*.* 
+# Unignore all dirs 
 !*/
