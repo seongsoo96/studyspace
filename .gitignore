@@ -5,6 +5,7 @@
 ### C ###
 # Prerequisites
 *.d
+/knou/c-basic/[^\.]*
 
 # Object files
 *.o
