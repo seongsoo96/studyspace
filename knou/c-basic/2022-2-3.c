@@ -14,6 +14,8 @@ void main()
     if(ch >= 'A' && ch <= 'Z')
       out_s[i] = lower(ch);
     else if(ch >= 'a' && ch <= 'z')
+      out_s[i] = upper(ch);
+    else
       out_s[i] = ch;
     i++;
     ch = in_s[i];
