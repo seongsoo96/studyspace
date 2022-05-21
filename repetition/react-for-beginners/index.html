@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<body>
+		<div id="root"></div>
+	</body>
+	<script
+		src="https://unpkg.com/react@18/umd/react.development.js"
+		crossorigin
+	></script>
+	<script
+		src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+		crossorigin
+	></script>
+	<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+	<script type="text/babel">
+		const root = document.getElementById("root");
+		const Title = () => (
+			<h3 id="title" onMouseEnter={() => console.log("mouse eneter")}>
+				Hello I'm a title
+			</h3>
+		);
+
+		const Button = () => (
+			<button
+				style={{ background: "tomato" }}
+				onClick={() => console.log("I'm clicked")}
+			>
+				Click me
+			</button>
+		);
+
+		const Container = () => (
+			<div>
+				<Title />
+				<Button />
+			</div>
+		);
+		ReactDOM.render(<Container />, root);
+	</script>
+</html>
