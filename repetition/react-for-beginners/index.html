@@ -13,7 +13,27 @@
 	></script>
 	<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
+	<!-- good way -->
 	<script type="text/babel">
+		const root = document.getElementById("root");
+		function App() {
+			const [counter, setCounter] = React.useState(0);
+			const onClick = () => {
+				setCounter(counter + 1);
+			};
+
+			return (
+				<div>
+					<h3 id="title">Total clicks : {counter}</h3>
+					<button onClick={onClick}>Click me</button>
+				</div>
+			);
+		}
+		ReactDOM.render(<App />, root);
+	</script>
+
+	<!-- bad way -->
+	<!-- <script type="text/babel">
 		const root = document.getElementById("root");
 		let counter = 0;
 		function countUp() {
@@ -30,5 +50,5 @@
 			</div>
 		);
 		ReactDOM.render(<Container />, root);
-	</script>
+	</script> -->
 </html>
