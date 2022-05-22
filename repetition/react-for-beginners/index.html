@@ -13,8 +13,54 @@
 	></script>
 	<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-	<!-- good way -->
 	<script type="text/babel">
+		const root = document.getElementById("root");
+		function App() {
+			const [amount, setAmount] = React.useState(0);
+			const [flipped, setFlipped] = React.useState(false);
+			const onChange = (e) => {
+				setAmount(e.target.value);
+			};
+			const reset = () => setAmount(0);
+			const onFlipped = () => {
+				reset();
+				setFlipped((current) => !current);
+			};
+			return (
+				<div>
+					<h1 className="h1">Super Conveter</h1>
+					<div>
+						<label htmlFor="minutes">Minutes</label>
+						<input
+							value={flipped ? amount * 60 : amount}
+							id="minutes"
+							placeholder="Minutes"
+							type="number"
+							onChange={onChange}
+							disabled={flipped}
+						/>
+					</div>
+					<div>
+						<label htmlFor="hours">Hours</label>
+						<input
+							value={flipped ? amount : Math.round(amount / 60)}
+							id="hours"
+							placeholder="Hours"
+							type="number"
+							onChange={onChange}
+							disabled={!flipped}
+						/>
+					</div>
+					<button onClick={reset}>Reset</button>
+					<button onClick={onFlipped}>Flip</button>
+				</div>
+			);
+		}
+		ReactDOM.render(<App />, root);
+	</script>
+
+	<!-- good way -->
+	<!-- <script type="text/babel">
 		const root = document.getElementById("root");
 		function App() {
 			const [counter, setCounter] = React.useState(0);
@@ -31,7 +77,7 @@
 			);
 		}
 		ReactDOM.render(<App />, root);
-	</script>
+	</script> -->
 
 	<!-- bad way -->
 	<!-- <script type="text/babel">
