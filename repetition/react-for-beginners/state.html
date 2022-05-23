@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<body>
+		<div id="repeat1"></div>
+	</body>
+	<script
+		src="https://unpkg.com/react@17/umd/react.development.js"
+		crossorigin
+	></script>
+	<script
+		src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+		crossorigin
+	></script>
+	<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+	<script type="text/babel">
+		const root = document.getElementById("repeat1");
+		function App() {
+			const [amount, setAmount] = React.useState(0);
+			const [flipped, setFlipped] = React.useState(false);
+			const onChange = (e) => {
+				setAmount(e.target.value);
+			};
+			const reset = () => setAmount(0);
+			const onFlip = () => {
+				reset();
+				setFlipped((cur) => !cur);
+			};
+			return (
+				<>
+					<div>Conveter</div>
+					<label htmlFor="min">Minutes</label>
+					<input
+						id="min"
+						placeholder="Minutes"
+						type="number"
+						value={!flipped ? amount : amount * 60}
+						onChange={onChange}
+						disabled={flipped}
+					/>
+					<label htmlFor="hours">Hours</label>
+					<input
+						id="hours"
+						placeholder="Hours"
+						type="number"
+						onChange={onChange}
+						value={flipped ? amount : Math.round(amount / 60)}
+						disabled={!flipped}
+					/>
+					<button onClick={reset}>Reset</button>
+					<button onClick={onFlip}>Flip</button>
+				</>
+			);
+		}
+		ReactDOM.render(<App />, root);
+	</script>
+</html>
