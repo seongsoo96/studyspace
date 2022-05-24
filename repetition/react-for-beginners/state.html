@@ -15,7 +15,8 @@
 
 	<script type="text/babel">
 		const root = document.getElementById("repeat1");
-		function App() {
+
+		function MinutesToHours() {
 			const [amount, setAmount] = React.useState(0);
 			const [flipped, setFlipped] = React.useState(false);
 			const onChange = (e) => {
@@ -28,7 +29,7 @@
 			};
 			return (
 				<>
-					<div>Conveter</div>
+					<div>MinutesToHours</div>
 					<label htmlFor="min">Minutes</label>
 					<input
 						id="min"
@@ -38,6 +39,7 @@
 						onChange={onChange}
 						disabled={flipped}
 					/>
+					<br />
 					<label htmlFor="hours">Hours</label>
 					<input
 						id="hours"
@@ -47,11 +49,34 @@
 						value={flipped ? amount : Math.round(amount / 60)}
 						disabled={!flipped}
 					/>
+					<br />
 					<button onClick={reset}>Reset</button>
 					<button onClick={onFlip}>Flip</button>
 				</>
 			);
 		}
+
+		function CmToInch() {
+			return (
+				<>
+					<div>CmToHours</div>
+				</>
+			);
+		}
+
+		function App() {
+			const [type, setType] = React.useState();
+			return (
+				<>
+					<select>
+						<option value={type}></option>
+					</select>
+					<MinutesToHours />
+					<CmToInch />
+				</>
+			);
+		}
+
 		ReactDOM.render(<App />, root);
 	</script>
 </html>
