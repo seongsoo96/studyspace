@@ -66,10 +66,14 @@
 
 		function App() {
 			const [type, setType] = React.useState();
+			const onChange = (e) => {
+				console.log(e.target.value);
+			}
 			return (
 				<>
-					<select>
-						<option value={type}></option>
+					<select onChange={onChange}>
+						<option value='1'>MinutesToHours</option>
+						<option value='2'>CmToInch</option>
 					</select>
 					<MinutesToHours />
 					<CmToInch />
