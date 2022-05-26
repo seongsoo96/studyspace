@@ -65,18 +65,21 @@
 		}
 
 		function App() {
-			const [type, setType] = React.useState();
+			const [type, setType] = React.useState("0");
 			const onChange = (e) => {
-				console.log(e.target.value);
-			}
+				setType(e.target.value);
+			};
 			return (
 				<>
-					<select onChange={onChange}>
-						<option value='1'>MinutesToHours</option>
-						<option value='2'>CmToInch</option>
+					<select value={type} onChange={onChange}>
+						<option value="0">Select Conveter</option>
+						<option value="1">MinutesToHours</option>
+						<option value="2">CmToInch</option>
 					</select>
-					<MinutesToHours />
-					<CmToInch />
+					<hr />
+					{type === "0" ? "Select Conveter" : null}
+					{type === "1" ? <MinutesToHours /> : null}
+					{type === "2" ? <CmToInch /> : null}
 				</>
 			);
 		}
