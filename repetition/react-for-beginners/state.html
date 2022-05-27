@@ -57,9 +57,38 @@
 		}
 
 		function CmToInch() {
+			const [unit, setUnit] = React.useState(0);
+			const [flipped, setFlipped] = React.useState(false);
+			const onChange = (e) => {
+				setUnit((cur) => (cur = e.target.value));
+			};
+			const reset = () => {
+				setUnit(0);
+			};
+			const flip = () => {
+				reset();
+				setFlipped((cur) => !cur);
+			};
 			return (
 				<>
 					<div>CmToHours</div>
+					<div>Cm</div>
+					<input
+						type="number"
+						onChange={onChange}
+						value={flipped ? unit * 2.54 : unit}
+						disabled={flipped}
+					/>
+					<div>Inch</div>
+					<input
+						type="number"
+						onChange={onChange}
+						value={!flipped ? (unit / 2.54).toFixed(2) : unit}
+						disabled={!flipped}
+					/>
+					<br />
+					<button onClick={reset}>reset</button>
+					<button onClick={flip}>flip</button>
 				</>
 			);
 		}
