@@ -4,58 +4,41 @@
 		<div id="root"></div>
 	</body>
 	<script
-		src="https://unpkg.com/react@18/umd/react.development.js"
+		src="https://unpkg.com/react@17/umd/react.development.js"
 		crossorigin
 	></script>
 	<script
-		src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+		src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
 		crossorigin
 	></script>
 	<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
 	<script type="text/babel">
-		const root = document.getElementById("root");
+		function Btn({ text, big }) {
+			return (
+				<button
+					style={{
+						backgroundColor: "tomato",
+						color: "white",
+						padding: "10px 20px",
+						border: 0,
+						borderRadius: 10,
+						fontSize: big ? 18 : 16,
+					}}
+				>
+					{text}
+				</button>
+			);
+		}
 		function App() {
-			const [amount, setAmount] = React.useState(0);
-			const [flipped, setFlipped] = React.useState(false);
-			const onChange = (e) => {
-				setAmount(e.target.value);
-			};
-			const reset = () => setAmount(0);
-			const onFlipped = () => {
-				reset();
-				setFlipped((current) => !current);
-			};
 			return (
 				<div>
-					<h1 className="h1">Super Conveter</h1>
-					<div>
-						<label htmlFor="minutes">Minutes</label>
-						<input
-							value={flipped ? amount * 60 : amount}
-							id="minutes"
-							placeholder="Minutes"
-							type="number"
-							onChange={onChange}
-							disabled={flipped}
-						/>
-					</div>
-					<div>
-						<label htmlFor="hours">Hours</label>
-						<input
-							value={flipped ? amount : Math.round(amount / 60)}
-							id="hours"
-							placeholder="Hours"
-							type="number"
-							onChange={onChange}
-							disabled={!flipped}
-						/>
-					</div>
-					<button onClick={reset}>Reset</button>
-					<button onClick={onFlipped}>Flip</button>
+					<Btn text="Save Changes" big={true} />
+					<Btn text="Continue" big={false} />
 				</div>
 			);
 		}
+		const root = document.getElementById("root");
 		ReactDOM.render(<App />, root);
 	</script>
 
