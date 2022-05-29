@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<body>
+		<div id="root"></div>
+	</body>
+	<script
+		src="https://unpkg.com/react@17/umd/react.development.js"
+		crossorigin
+	></script>
+	<script
+		src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+		crossorigin
+	></script>
+	<script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+	<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+	<script type="text/babel">
+		function Btn({ text, fontSize = 14 }) {
+			console.log(text, "was rendered");
+			return (
+				<button
+					style={{
+						backgroundColor: "skyblue",
+						border: 0,
+						padding: "10px 20px",
+						borderRadius: 10,
+						fontSize: fontSize,
+					}}
+				>
+					{text}
+				</button>
+			);
+		}
+		Btn.propTypes = {
+			text: PropTypes.string,
+			fontSize: PropTypes.number,
+		};
+		const MemorizedBtn = React.memo(Btn);
+		function App() {
+			const [value, setValue] = React.useState("hello");
+			const onClick = () => setValue("change value!");
+			return (
+				<div>
+					<MemorizedBtn text={value} fontSize={18} />
+					<MemorizedBtn
+						text={14}
+						fontSize={"It should be a number"}
+					/>
+				</div>
+			);
+		}
+		const root = document.getElementById("root");
+		ReactDOM.render(<App />, root);
+	</script>
+</html>
