@@ -14,27 +14,32 @@
 	<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
 	<script type="text/babel">
-		function Btn({ text, big }) {
+		function Btn({ text, onClick }) {
+			console.log(text, "was rendered");
 			return (
 				<button
+					onClick={onClick}
 					style={{
 						backgroundColor: "tomato",
 						color: "white",
 						padding: "10px 20px",
 						border: 0,
 						borderRadius: 10,
-						fontSize: big ? 18 : 16,
 					}}
 				>
 					{text}
 				</button>
 			);
 		}
+		const MemorizedBtn = React.memo(Btn);
 		function App() {
+			const [value, setValue] = React.useState("Save Changes");
+			const changeValue = () => setValue("Revert Changes");
 			return (
 				<div>
-					<Btn text="Save Changes" big={true} />
-					<Btn text="Continue" big={false} />
+					{/* 여기에서의 onClick은 이벤트리스너가 아님. */}
+					<MemorizedBtn text={value} onClick={changeValue} />
+					<MemorizedBtn text="Continue" />
 				</div>
 			);
 		}
