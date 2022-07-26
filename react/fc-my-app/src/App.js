@@ -2,6 +2,8 @@ import './App.css';
 import WelcomDialog from './components/3-5.Composition/WelcomDialog';
 import Dialog from './components/3-6.Composition2/Dialog';
 import ThankyouDialog from './components/3-6.Composition2/ThankyouDialog';
+import Button from './components/3-7.HOC/Button';
+import Input from './components/3-7.HOC/Input';
 // import Composition from './components/2-4.Props/Composition';
 // import Extraction from './components/2-4.Props/Extraction/Extraction';
 // import ClassComponent from './components/2-5.State/ClassComponent';
@@ -18,7 +20,11 @@ import ThankyouDialog from './components/3-6.Composition2/ThankyouDialog';
 function App() {
   return (
     <div className="App">
-      <ThankyouDialog />
+      <Input />
+      <br />
+      <br />
+      <Button />
+      {/* <ThankyouDialog /> */}
       {/* <Dialog /> */}
       {/* <WelcomDialog /> */}
       {/* <Reducer /> */}
