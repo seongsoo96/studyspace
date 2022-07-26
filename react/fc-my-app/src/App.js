@@ -4,6 +4,7 @@ import Dialog from './components/3-6.Composition2/Dialog';
 import ThankyouDialog from './components/3-6.Composition2/ThankyouDialog';
 import Button from './components/3-7.HOC/Button';
 import Input from './components/3-7.HOC/Input';
+import Memo from './components/3-8.Memoization/Memo';
 // import Composition from './components/2-4.Props/Composition';
 // import Extraction from './components/2-4.Props/Extraction/Extraction';
 // import ClassComponent from './components/2-5.State/ClassComponent';
@@ -20,10 +21,9 @@ import Input from './components/3-7.HOC/Input';
 function App() {
   return (
     <div className="App">
-      <Input />
-      <br />
-      <br />
-      <Button />
+      <Memo />
+      {/* <Input /> */}
+      {/* <Button /> */}
       {/* <ThankyouDialog /> */}
       {/* <Dialog /> */}
       {/* <WelcomDialog /> */}
