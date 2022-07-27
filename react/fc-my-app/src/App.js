@@ -1,12 +1,13 @@
 import './App.css';
-import Example from './components/3-11.Portal/Example';
+import Component from './components/3-14.PropTypes/Component';
+// import Example from './components/3-11.Portal/Example';
 // import Example from './components/3-10.Context/Example';
-import WelcomDialog from './components/3-5.Composition/WelcomDialog';
-import Dialog from './components/3-6.Composition2/Dialog';
-import ThankyouDialog from './components/3-6.Composition2/ThankyouDialog';
-import Button from './components/3-7.HOC/Button';
-import Input from './components/3-7.HOC/Input';
-import Memo from './components/3-8.Memoization/Memo';
+// import WelcomDialog from './components/3-5.Composition/WelcomDialog';
+// import Dialog from './components/3-6.Composition2/Dialog';
+// import ThankyouDialog from './components/3-6.Composition2/ThankyouDialog';
+// import Button from './components/3-7.HOC/Button';
+// import Input from './components/3-7.HOC/Input';
+// import Memo from './components/3-8.Memoization/Memo';
 // import Composition from './components/2-4.Props/Composition';
 // import Extraction from './components/2-4.Props/Extraction/Extraction';
 // import ClassComponent from './components/2-5.State/ClassComponent';
@@ -23,7 +24,7 @@ import Memo from './components/3-8.Memoization/Memo';
 function App() {
   return (
     <div className="App">
-      <Example />
+      <Component />
       {/* <Example /> */}
       {/* <Memo /> */}
       {/* <Input /> */}
