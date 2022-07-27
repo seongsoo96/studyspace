@@ -1,5 +1,6 @@
 import './App.css';
-import Example from './components/3-10.Context/Example';
+import Example from './components/3-11.Portal/Example';
+// import Example from './components/3-10.Context/Example';
 import WelcomDialog from './components/3-5.Composition/WelcomDialog';
 import Dialog from './components/3-6.Composition2/Dialog';
 import ThankyouDialog from './components/3-6.Composition2/ThankyouDialog';
@@ -23,6 +24,7 @@ function App() {
   return (
     <div className="App">
       <Example />
+      {/* <Example /> */}
       {/* <Memo /> */}
       {/* <Input /> */}
       {/* <Button /> */}
