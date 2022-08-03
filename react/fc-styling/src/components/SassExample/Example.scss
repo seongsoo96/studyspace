@@ -1,0 +1,151 @@
+@use 'foundation/_base.scss';
+
+$font-stack: Helvetica, sans-serif;
+$primary-color: red;
+
+.font {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+
+.text {
+  font: 100% $font-stack;
+}
+
+nav {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    display: inline-block;
+  }
+
+  a {
+    display: block;
+    padding: 6px 12px;
+    text-decoration: none;
+  }
+}
+
+.inverse {
+  background-color: base.$primary-color;
+  color: white;
+}
+
+@mixin theme($theme: DarkGray) {
+  background: $theme;
+  box-shadow: 0 0 1px rgba($theme, 0.25);
+  color: #fff;
+}
+
+.info {
+  @include theme;
+}
+.alert {
+  @include theme($theme: DarkRed);
+}
+.success {
+  @include theme($theme: DarkGreen);
+}
+
+/* This CSS will print because %message-shared is extended. */
+%message-shared {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+// This CSS won't print because %equal-heights is never extended.
+%equal-heights {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.message {
+  @extend %message-shared;
+}
+
+.success2 {
+  @extend %message-shared;
+  border-color: green;
+}
+
+.error {
+  @extend %message-shared;
+  border-color: red;
+}
+
+.warning {
+  @extend %message-shared;
+  border-color: yellow;
+}
+
+@mixin avatar($size, $circle: false) {
+  width: $size;
+  height: $size;
+  background-color: aqua;
+
+  @if $circle {
+    border-radius: $size / 2;
+  }
+}
+
+.square-av {
+  @include avatar(100px, $circle: false);
+}
+.circle-av {
+  @include avatar(100px, $circle: true);
+}
+
+@function pow($base, $exponent) {
+  $result: 1;
+  @for $_ from 1 through $exponent {
+    $result: $result * $base;
+  }
+  @return $result;
+}
+
+.sidebar {
+  float: left;
+  margin-left: pow(4, 3) * 1px;
+}
+
+@mixin reflexive-position($property, $value) {
+  @if $property != left and $property != right {
+    @error "Property #{$property} must be either left or right.";
+  }
+
+  $left-value: if($property == right, initial, $value);
+  $right-value: if($property == right, $value, initial);
+
+  left: $left-value;
+  right: $right-value;
+  [dir='rtl'] & {
+    left: $right-value;
+    right: $left-value;
+  }
+}
+
+.sidebar {
+  @include reflexive-position(right, 12px);
+  //       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  // Error: Property top must be either left or right.
+}
+
+@mixin prefix($property, $value, $prefixes) {
+  @each $prefix in $prefixes {
+    -#{$prefix}-#{$property}: $value;
+  }
+  #{$property}: $value;
+}
+
+.gray {
+  @include prefix(filter, grayscale(50%), moz webkit);
+}
+
+.button {
+  @include prefix(background, linear-gradient(red, yellow), moz webkit o ms);
+}
