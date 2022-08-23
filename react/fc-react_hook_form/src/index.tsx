@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Register from './Register';
+import Register from './components/Register';
 import reportWebVitals from './reportWebVitals';
-import Watch from './Watch';
+import Watch from './components/Watch';
+import Validation from './components/Validation';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -13,6 +14,8 @@ root.render(
     <Register />
     <h1>Watch</h1>
     <Watch />
+    <h1>Validation</h1>
+    <Validation />
   </React.StrictMode>
 );
 
