@@ -2,13 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Register from './Register';
 import reportWebVitals from './reportWebVitals';
+import Watch from './Watch';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
+    <h1>Register</h1>
     <Register />
+    <h1>Watch</h1>
+    <Watch />
   </React.StrictMode>
 );
 
