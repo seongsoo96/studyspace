@@ -1,0 +1,32 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  height: 40px;
+}
+
+.error {
+  padding-top: 4px;
+  color: #ec5990;
+  font-size: 14px;
+}
+
+input {
+  width: 280px;
+  height: 50px;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  box-sizing: border-box;
+}
+
+input[type='submit'] {
+  background-color: #ec5990;
+  color: #fff;
+  margin-top: 12px;
+}
