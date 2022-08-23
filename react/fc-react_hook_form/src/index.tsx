@@ -4,6 +4,7 @@ import Register from './components/Register';
 import reportWebVitals from './reportWebVitals';
 import Watch from './components/Watch';
 import Validation from './components/Validation';
+import FormContext from './components/FormContext';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -16,6 +17,8 @@ root.render(
     <Watch />
     <h1>Validation</h1>
     <Validation />
+    <h1>FormContext</h1>
+    <FormContext />
   </React.StrictMode>
 );
 
