@@ -5,7 +5,7 @@ export default function SubLayout({ children }) {
     <div>
       <h1>
         <Link href="/">
-          <a>Home로</a>
+          <a>Home 으로</a>
         </Link>
       </h1>
       {children}

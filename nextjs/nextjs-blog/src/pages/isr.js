@@ -1,6 +1,14 @@
 import Head from 'next/head';
 
-export default function Layout({ children }) {
+export async function getStaticProps() {
+  console.log('server');
+  return {
+    props: { time: new Date().toISOString() },
+    revalidate: 1,
+  };
+}
+
+export default function ISR({ time }) {
   return (
     <div className="container">
       <Head>
@@ -8,7 +16,9 @@ export default function Layout({ children }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>{children}</main>
+      <main>
+        <h1 className="title">{time}</h1>
+      </main>
 
       <footer>
         <a
