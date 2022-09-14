@@ -1,7 +1,6 @@
 import React from 'react';
 import { useCoiledState } from '../recoilClone';
 import numBState from '../store/atom/numBState';
-import sumSelector from '../store/selector/sumSelector';
 
 export default function NumB() {
   const [numB, setNumB] = useCoiledState(numBState);
