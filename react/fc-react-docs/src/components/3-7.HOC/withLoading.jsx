@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function withLoading(Component) {
   const WithLoadingComponent = (props) => {
@@ -9,7 +9,7 @@ export default function withLoading(Component) {
       return () => clearTimeout(timer);
     }, []);
 
-    return loading ? <p>Loading...</p> : <Component {...props} />;
+    return loading ? <span>Loading...</span> : <Component {...props} />;
   };
 
   return WithLoadingComponent;
