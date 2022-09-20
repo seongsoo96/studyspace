@@ -6,6 +6,10 @@ export default function Comments({ commentList }) {
     console.log('눌림');
   }, []);
 
+  // const handleClick = () => {
+  //   console.log('props로 전달해준 onClick 발동!');
+  // };
+
   return (
     <div>
       {commentList.map((comment) => (

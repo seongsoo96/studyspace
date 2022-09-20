@@ -2,7 +2,7 @@ import React, { Profiler, memo, useState, useMemo } from 'react';
 import './CommentItem.css';
 
 function CommentItem({ title, content, likes, onClick }) {
-  const [clickCount, setClickCount] = useState(0);
+  // const [clickCount, setClickCount] = useState(0);
 
   function onRenderCallback(
     id, // 방금 커밋된 Profiler 트리의 "id"
@@ -14,19 +14,20 @@ function CommentItem({ title, content, likes, onClick }) {
     interactions // 이 업데이트에 해당하는 상호작용들의 집합
   ) {
     // 렌더링 타이밍을 집합하거나 로그...
-    console.log(`actualDuration(${title}: ${actualDuration}})`);
+    console.log(`${title}이 렌더링 되었습니다.`);
+    // console.log(`actualDuration(${title}: ${actualDuration}})`);
   }
 
   const handleClick = () => {
     onClick();
-    setClickCount((prev) => prev + 1);
+    // setClickCount((prev) => prev + 1);
     alert(`${title} 눌림`);
   };
 
-  const rate = useMemo(() => {
-    console.log('rate check');
-    return likes > 10 ? 'Good' : 'Bad';
-  }, [likes]);
+  // const rate = useMemo(() => {
+  //   console.log('rate check');
+  //   return likes > 10 ? 'Good' : 'Bad';
+  // }, [likes]);
 
   return (
     <Profiler id="CommentItem" onRender={onRenderCallback}>
@@ -36,10 +37,10 @@ function CommentItem({ title, content, likes, onClick }) {
         <span>{content}</span>
         <br />
         <span>{likes}</span>
-        <br />
+        {/* <br />
         <span>{rate}</span>
         <br />
-        <span>{clickCount}</span>
+        <span>{clickCount}</span> */}
       </div>
     </Profiler>
   );
